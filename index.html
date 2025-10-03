@@ -197,7 +197,7 @@
 
         /* Hero Section */
         .hero {
-            background: linear-gradient(135deg, rgba(255, 107, 107, 0.9), rgba(78, 205, 196, 0.9)), url('C:\Users\Nada\Desktop\html\Nada.jpg');
+            background: linear-gradient(135deg, rgba(255, 107, 107, 0.9), rgba(78, 205, 196, 0.9));
             background-size: cover;
             background-position: center;
             height: 100vh;
@@ -495,7 +495,9 @@
             border-radius: 20px;
             overflow: hidden;
             box-shadow: var(--shadow);
-            height: 500px;
+            height: auto;
+            min-height: 300px;
+            max-height: 600px;
             transition: var(--transition);
         }
 
@@ -507,7 +509,7 @@
         .fullscreen-image {
             width: 100%;
             height: 100%;
-            object-fit: cover;
+            object-fit: contain;
             object-position: center;
             display: block;
             transition: var(--transition);
@@ -533,7 +535,7 @@
 
         .small-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
             gap: 20px;
             max-width: 1000px;
             margin: 0 auto;
@@ -988,7 +990,21 @@
             }
         }
 
-        /* Responsive Design */
+        /* Responsive Design - تحسينات الاستجابة */
+        @media (max-width: 992px) {
+            .about-content {
+                flex-direction: column;
+            }
+
+            .contact-content {
+                flex-direction: column;
+            }
+
+            .small-grid {
+                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            }
+        }
+
         @media (max-width: 768px) {
             .menu-toggle {
                 display: block;
@@ -1019,16 +1035,18 @@
                 font-size: 2.5rem;
             }
 
-            .about-content {
-                flex-direction: column;
+            .hero-content p {
+                font-size: 1.1rem;
+            }
+
+            .large-image-container {
+                height: auto;
+                max-height: 400px;
             }
 
             .small-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .contact-content {
-                flex-direction: column;
+                grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+                padding: 10px;
             }
 
             .testimonial-controls {
@@ -1038,11 +1056,15 @@
             .testimonials-grid {
                 grid-template-columns: 1fr;
             }
+
+            section {
+                padding: 60px 0;
+            }
         }
 
         @media (max-width: 480px) {
             .small-grid {
-                grid-template-columns: 1fr;
+                grid-template-columns: repeat(2, 1fr);
             }
 
             .hero-content h1 {
@@ -1051,6 +1073,32 @@
 
             .section-title h2 {
                 font-size: 2rem;
+            }
+
+            .large-image-container {
+                max-height: 300px;
+            }
+
+            .profile-image, .profile-placeholder {
+                height: 400px;
+            }
+
+            .education-section {
+                padding: 20px;
+            }
+        }
+
+        @media (max-width: 360px) {
+            .small-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-content h1 {
+                font-size: 1.8rem;
+            }
+
+            .section-title h2 {
+                font-size: 1.8rem;
             }
         }
     </style>
@@ -1229,25 +1277,21 @@
                 <!-- Large Image 1 with NTI -->
                 <div class="large-image-container">
                     <img src="nada korany.jpg" class="fullscreen-image" alt="project1">
-
                 </div>
 
                 <!-- Large Image 2 with NTI -->
                 <div class="large-image-container">
                     <img src="nada korany2.jpg" class="fullscreen-image" alt="Design Project 2">
-
                 </div>
 
                 <!-- Large Image 3 with NTI -->
                 <div class="large-image-container">
                     <img src="nada korany3.jpg" class="fullscreen-image" alt="Design Project 3">
-
                 </div>
 
                 <!-- Large Image 4 with NTI -->
                 <div class="large-image-container">
                     <img src="nada korany5.jpg" class="fullscreen-image" alt="Design Project 4">
-
                 </div>
                 <!-- Large Image 5 with NTI -->
                 <div class="large-image-container">
@@ -1736,15 +1780,15 @@
                 }
 
                 testimonialElement.innerHTML = `
-                        <div class="testimonial-header">
-                            <div>
-                                <div class="testimonial-author">${testimonial.name}</div>
-                                <div class="testimonial-date">${testimonial.date}</div>
-                            </div>
-                            <div class="testimonial-rating">${starsHtml}</div>
-                        </div>
-                        <div class="testimonial-content">${testimonial.content}</div>
-                    `;
+                                <div class="testimonial-header">
+                                    <div>
+                                        <div class="testimonial-author">${testimonial.name}</div>
+                                        <div class="testimonial-date">${testimonial.date}</div>
+                                    </div>
+                                    <div class="testimonial-rating">${starsHtml}</div>
+                                </div>
+                                <div class="testimonial-content">${testimonial.content}</div>
+                            `;
 
                 testimonialsList.appendChild(testimonialElement);
             });
