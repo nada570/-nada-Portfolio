@@ -700,6 +700,156 @@
             resize: vertical;
         }
 
+        /* Testimonials Section */
+        .testimonials-section {
+            background: var(--light-color);
+        }
+
+        .testimonials-container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .testimonial-form {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+            margin-bottom: 40px;
+        }
+
+        .form-title {
+            text-align: center;
+            margin-bottom: 25px;
+            color: var(--dark-color);
+        }
+
+        .rating-stars {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+            gap: 10px;
+        }
+
+        .star {
+            font-size: 28px;
+            color: #ddd;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+            .star:hover,
+            .star.active {
+                color: var(--accent-color);
+                transform: scale(1.1);
+            }
+
+        .rating-text {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #666;
+            font-style: italic;
+        }
+
+        .testimonial-controls {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+            .testimonial-controls input {
+                flex: 1;
+                padding: 12px 15px;
+                border: 2px solid #e9ecef;
+                border-radius: 10px;
+                font-size: 1rem;
+                transition: var(--transition);
+                background: var(--light-color);
+            }
+
+                .testimonial-controls input:focus {
+                    outline: none;
+                    border-color: var(--secondary-color);
+                    box-shadow: 0 0 0 3px rgba(78, 205, 196, 0.1);
+                    background: white;
+                }
+
+        .testimonial-textarea {
+            width: 100%;
+            min-height: 120px;
+            padding: 12px 15px;
+            border: 2px solid #e9ecef;
+            border-radius: 10px;
+            font-size: 1rem;
+            transition: var(--transition);
+            background: var(--light-color);
+            resize: vertical;
+            margin-bottom: 20px;
+        }
+
+            .testimonial-textarea:focus {
+                outline: none;
+                border-color: var(--secondary-color);
+                box-shadow: 0 0 0 3px rgba(78, 205, 196, 0.1);
+                background: white;
+            }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+        }
+
+        .testimonial-card {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            position: relative;
+        }
+
+            .testimonial-card:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+            }
+
+        .testimonial-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 15px;
+        }
+
+        .testimonial-author {
+            font-weight: 600;
+            color: var(--dark-color);
+        }
+
+        .testimonial-rating {
+            color: var(--accent-color);
+            font-size: 1.1rem;
+        }
+
+        .testimonial-date {
+            font-size: 0.85rem;
+            color: #888;
+            margin-top: 5px;
+        }
+
+        .testimonial-content {
+            color: #555;
+            line-height: 1.6;
+        }
+
+        .no-testimonials {
+            text-align: center;
+            padding: 40px;
+            color: #888;
+            font-style: italic;
+            grid-column: 1 / -1;
+        }
+
         /* Footer */
         footer {
             background: linear-gradient(135deg, var(--dark-color), #1a252f);
@@ -880,6 +1030,14 @@
             .contact-content {
                 flex-direction: column;
             }
+
+            .testimonial-controls {
+                flex-direction: column;
+            }
+
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
         }
 
         @media (max-width: 480px) {
@@ -921,6 +1079,7 @@
                     <li><a href="#education">Education</a></li>
                     <li><a href="#projects">Projects</a></li>
                     <li><a href="#contact">Contact</a></li>
+                    <li><a href="#testimonials">Reviews</a></li>
                 </ul>
             </nav>
         </div>
@@ -1070,25 +1229,25 @@
                 <!-- Large Image 1 with NTI -->
                 <div class="large-image-container">
                     <img src="nada korany.jpg" class="fullscreen-image" alt="project1">
-                   
+
                 </div>
 
                 <!-- Large Image 2 with NTI -->
                 <div class="large-image-container">
                     <img src="nada korany2.jpg" class="fullscreen-image" alt="Design Project 2">
-                    
+
                 </div>
 
                 <!-- Large Image 3 with NTI -->
                 <div class="large-image-container">
                     <img src="nada korany3.jpg" class="fullscreen-image" alt="Design Project 3">
-                    
+
                 </div>
 
                 <!-- Large Image 4 with NTI -->
                 <div class="large-image-container">
                     <img src="nada korany5.jpg" class="fullscreen-image" alt="Design Project 4">
-                   
+
                 </div>
                 <!-- Large Image 5 with NTI -->
                 <div class="large-image-container">
@@ -1271,6 +1430,49 @@
         </div>
     </section>
 
+    <!-- قسم التقييمات الجديد -->
+    <section id="testimonials" class="testimonials-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Client Reviews</h2>
+                <p>What people say about my work</p>
+            </div>
+
+            <div class="testimonials-container">
+                <!-- نموذج إضافة تقييم -->
+                <div class="testimonial-form">
+                    <h3 class="form-title">Add Your Review</h3>
+
+                    <div class="rating-stars" id="ratingStars">
+                        <span class="star" data-rating="1">★</span>
+                        <span class="star" data-rating="2">★</span>
+                        <span class="star" data-rating="3">★</span>
+                        <span class="star" data-rating="4">★</span>
+                        <span class="star" data-rating="5">★</span>
+                    </div>
+
+                    <div class="rating-text" id="ratingText">Click stars to rate</div>
+
+                    <div class="testimonial-controls">
+                        <input type="text" id="reviewerName" placeholder="Your Name" required>
+                        <input type="email" id="reviewerEmail" placeholder="Your Email (optional)">
+                    </div>
+
+                    <textarea class="testimonial-textarea" id="reviewContent" placeholder="Share your experience..." required></textarea>
+
+                    <button class="btn" id="submitReview" style="width: 100%;">
+                        <i class="fas fa-paper-plane"></i> Submit Review
+                    </button>
+                </div>
+
+                <!-- عرض التقييمات -->
+                <div class="testimonials-grid" id="testimonialsList">
+                    <!-- سيتم عرض التقييمات هنا -->
+                </div>
+            </div>
+        </div>
+    </section>
+
     <footer>
         <div class="container">
             <h3>Nada Korany</h3>
@@ -1383,6 +1585,179 @@
             el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
             observer.observe(el);
         });
+
+        // نظام التقييمات الجديد
+        let currentRating = 0;
+        let testimonials = [];
+
+        // عناصر DOM للتقييمات
+        const stars = document.querySelectorAll('.star');
+        const ratingText = document.getElementById('ratingText');
+        const submitReviewBtn = document.getElementById('submitReview');
+        const testimonialsList = document.getElementById('testimonialsList');
+
+        // نصوص التقييم
+        const ratingTexts = {
+            0: "Click stars to rate",
+            1: "Poor",
+            2: "Fair",
+            3: "Good",
+            4: "Very Good",
+            5: "Excellent"
+        };
+
+        // إضافة حدث النقر للنجوم
+        stars.forEach(star => {
+            star.addEventListener('click', function () {
+                currentRating = parseInt(this.getAttribute('data-rating'));
+                updateStars();
+                updateRatingText();
+            });
+        });
+
+        // تحديث مظهر النجوم
+        function updateStars() {
+            stars.forEach(star => {
+                const starRating = parseInt(star.getAttribute('data-rating'));
+                if (starRating <= currentRating) {
+                    star.classList.add('active');
+                } else {
+                    star.classList.remove('active');
+                }
+            });
+        }
+
+        // تحديث نص التقييم
+        function updateRatingText() {
+            ratingText.textContent = ratingTexts[currentRating];
+        }
+
+        // إرسال التقييم
+        submitReviewBtn.addEventListener('click', function () {
+            const name = document.getElementById('reviewerName').value;
+            const email = document.getElementById('reviewerEmail').value;
+            const content = document.getElementById('reviewContent').value;
+
+            if (!name.trim()) {
+                alert('Please enter your name');
+                return;
+            }
+
+            if (!content.trim()) {
+                alert('Please enter your review');
+                return;
+            }
+
+            if (currentRating === 0) {
+                alert('Please select a rating');
+                return;
+            }
+
+            // Show loading state
+            const originalText = submitReviewBtn.innerHTML;
+            submitReviewBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Submitting...';
+            submitReviewBtn.disabled = true;
+
+            // إنشاء التقييم
+            const testimonial = {
+                id: Date.now(),
+                name: name,
+                email: email,
+                rating: currentRating,
+                content: content,
+                date: new Date().toLocaleDateString('en-US', {
+                    year: 'numeric',
+                    month: 'long',
+                    day: 'numeric'
+                })
+            };
+
+            // إضافة التقييم للقائمة
+            testimonials.push(testimonial);
+
+            // حفظ التقييمات
+            saveTestimonials();
+
+            // تحديث العرض
+            displayTestimonials();
+
+            // إعادة تعيين النموذج
+            document.getElementById('reviewerName').value = '';
+            document.getElementById('reviewerEmail').value = '';
+            document.getElementById('reviewContent').value = '';
+            currentRating = 0;
+            updateStars();
+            updateRatingText();
+
+            // إعادة تعيين الزر
+            submitReviewBtn.innerHTML = originalText;
+            submitReviewBtn.disabled = false;
+
+            alert('Thank you for your review!');
+        });
+
+        // حفظ التقييمات في localStorage
+        function saveTestimonials() {
+            localStorage.setItem('testimonials', JSON.stringify(testimonials));
+        }
+
+        // تحميل التقييمات من localStorage
+        function loadTestimonials() {
+            const savedTestimonials = localStorage.getItem('testimonials');
+            if (savedTestimonials) {
+                testimonials = JSON.parse(savedTestimonials);
+            }
+        }
+
+        // عرض التقييمات
+        function displayTestimonials() {
+            if (testimonials.length === 0) {
+                testimonialsList.innerHTML = '<div class="no-testimonials">No reviews yet. Be the first to share your experience!</div>';
+                return;
+            }
+
+            // ترتيب التقييمات من الأحدث للأقدم
+            const sortedTestimonials = [...testimonials].reverse();
+
+            testimonialsList.innerHTML = '';
+
+            sortedTestimonials.forEach(testimonial => {
+                const testimonialElement = document.createElement('div');
+                testimonialElement.className = 'testimonial-card';
+
+                // إنشاء النجوم للتقييم
+                let starsHtml = '';
+                for (let i = 1; i <= 5; i++) {
+                    if (i <= testimonial.rating) {
+                        starsHtml += '<span style="color: var(--accent-color);">★</span>';
+                    } else {
+                        starsHtml += '<span style="color: #ddd;">★</span>';
+                    }
+                }
+
+                testimonialElement.innerHTML = `
+                        <div class="testimonial-header">
+                            <div>
+                                <div class="testimonial-author">${testimonial.name}</div>
+                                <div class="testimonial-date">${testimonial.date}</div>
+                            </div>
+                            <div class="testimonial-rating">${starsHtml}</div>
+                        </div>
+                        <div class="testimonial-content">${testimonial.content}</div>
+                    `;
+
+                testimonialsList.appendChild(testimonialElement);
+            });
+        }
+
+        // تهيئة نظام التقييمات
+        function initTestimonials() {
+            loadTestimonials();
+            displayTestimonials();
+        }
+
+        // تشغيل نظام التقييمات عند تحميل الصفحة
+        document.addEventListener('DOMContentLoaded', initTestimonials);
     </script>
 </body>
 </html>
