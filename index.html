@@ -115,6 +115,25 @@
                 transform: translateY(-3px);
                 box-shadow: 0 10px 20px rgba(255, 107, 107, 0.3);
             }
+        /* تحسينات سرعة الصور */
+        .fullscreen-image {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            object-position: center;
+            display: block;
+            transition: var(--transition);
+            background: #f0f0f0; /* لون خلفية أثناء التحميل */
+        }
+
+            /* تأثير التحميل */
+            .fullscreen-image.loading {
+                opacity: 0.5;
+            }
+
+        .small-image {
+            background: #f8f8f8; /* خلفية للصور الصغيرة */
+        }
 
         /* Header Styles */
         header {
